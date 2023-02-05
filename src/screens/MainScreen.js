@@ -4,7 +4,7 @@ import {getItunes} from '../api/service';
 export default function MainScreen() {
 
   async function getSongs() {
-    console.log(await rrgetItunes());
+    console.log(await getItunes());
   }
 
   useEffect(()=>{

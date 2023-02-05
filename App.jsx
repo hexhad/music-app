@@ -12,8 +12,8 @@ export default function App() {
   async function initTest(){
     setToken(await getData('TOKEN'));
   }
-  useEffect(async() => {
-    await initTest()
+  useEffect(() => {
+    initTest();
   }, []);
 
   return <>{token ? <BottomNav /> : <LoginScreen />}</>;
