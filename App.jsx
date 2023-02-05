@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import BottomNav from './src/navigation/BottomNav';
 import LoginScreen from './src/screens/LoginScreen';
 import {getData} from './src/storage/asyncStorage';
+
+import {Provider} from 'react-redux';
+import {store} from './src/redux/store';
 
 export default function App() {
   const [token, setToken] = useState(null);
@@ -16,5 +16,5 @@ export default function App() {
     initTest();
   }, []);
 
-  return <>{token ? <BottomNav /> : <LoginScreen />}</>;
+  return <Provider store={store}>{token ? <BottomNav /> : <LoginScreen />}</Provider>;
 }

@@ -12,7 +12,11 @@ const Tab = createBottomTabNavigator();
 export default function BottomNav() {
   return (
     <NavigationContainer>
-      <Tab.Navigator screenOptions={{headerShown: false}}>
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          tabBarStyle: {backgroundColor: '#000'},
+        }}>
         <Tab.Screen
           name="MainScreen"
           component={MainScreen}
@@ -20,8 +24,8 @@ export default function BottomNav() {
             tabBarLabel: 'Home',
             tabBarIcon: ({focused}) => (
               <Home
-              stroke={focused ? 'yellow' : 'red'}
-                fill="#fff"
+                stroke={'#F9C70C'}
+                fill={focused ? '#F9C70C' : 'transparent'}
                 width={20}
                 height={20}
               />
@@ -35,8 +39,8 @@ export default function BottomNav() {
             tabBarLabel: 'Search',
             tabBarIcon: ({focused}) => (
               <SearchIcon
-                stroke={focused ? 'yellow' : 'red'}
-                fill="#fff"
+                stroke={'#F9C70C'}
+                fill={focused ? '#F9C70C' : 'transparent'}
                 width={20}
                 height={20}
               />
@@ -48,15 +52,14 @@ export default function BottomNav() {
           component={Library}
           options={{
             tabBarLabel: 'Library',
-            tabBarIcon: ({ focused, color }) => (
-               <Book
-               stroke={focused ? 'yellow' : 'red'}
-                fill="#fff"
+            tabBarIcon: ({focused, color}) => (
+              <Book
+                stroke={'#F9C70C'}
+                fill={focused ? '#F9C70C' : 'transparent'}
                 width={20}
                 height={20}
               />
-            )
-           
+            ),
           }}
         />
       </Tab.Navigator>

@@ -1,18 +1,10 @@
-import React,{useState, useEffect} from 'react'
-import { View, Text } from 'react-native'
-import {getItunes} from '../api/service';
+import React, {useState, useEffect} from 'react';
+import {View, Text, FlatList, TextInput} from 'react-native';
+
 export default function MainScreen() {
-
-  async function getSongs() {
-    console.log(await getItunes());
-  }
-
-  useEffect(()=>{
-    getSongs();
-  },[])
   return (
     <View>
       <Text>MainScreen</Text>
     </View>
-  )
+  );
 }
