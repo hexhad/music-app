@@ -5,7 +5,7 @@ import {styles} from './LoginScreen.Styles';
 import {callAuth} from '../api/service';
 import {setData} from '../storage/asyncStorage';
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
 

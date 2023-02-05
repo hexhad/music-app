@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-export default function Library() {
+export default function Library({ navigation }) {
   return (
     <View>
       <Text>Library</Text>

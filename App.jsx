@@ -16,5 +16,5 @@ export default function App() {
     initTest();
   }, []);
 
-  return <Provider store={store}>{token ? <BottomNav /> : <LoginScreen />}</Provider>;
+  return (<Provider store={store}>{token ? <BottomNav /> : <LoginScreen />}</Provider>);
 }

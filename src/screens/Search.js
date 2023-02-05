@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, FlatList, TextInput} from 'react-native';
+import {View, Text, FlatList, TextInput, TouchableOpacity} from 'react-native';
 import {Image} from 'react-native-svg';
 import {getItunes} from '../api/service';
 import {styles} from './Search.Styles';
 import {Search as SearchIcon} from 'react-native-feather';
 
-export default function Search() {
+export default function Search({ navigation }) {
   const [userCred, setUserCred] = useState('');
   const [songs, setSongs] = useState([]);
   async function getSongs() {
@@ -19,7 +19,12 @@ export default function Search() {
 
   function SongCard(props) {
     return (
-      <View style={styles.cardContainer}>
+      <TouchableOpacity style={styles.cardContainer} onPress={() => navigation.navigate('SongInfo',{
+        artistName: props.song.item.artistName,
+        collectionName: props.song.item.collectionName,
+        trackName: props.song.item.trackName,
+        Artwork: props.song.item.artworkUrl100,
+      })}>
         <View style={styles.cardLeftWrapper}>
           <Image
             source={{uri: props.song.item.artworkUrl100}}
@@ -33,7 +38,7 @@ export default function Search() {
           </Text>
           <Text style={styles.defaultText}>{props.song.item.trackName}</Text>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 
